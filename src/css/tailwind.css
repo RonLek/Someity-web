@@ -12,7 +12,7 @@ a:hover {
 @tailwind utilities;
 
 .animation-element.slide-left {
-  opacity: 0.0;
+  opacity: 0;
   -moz-transition: all 500ms linear;
   -webkit-transition: all 500ms linear;
   -o-transition: all 500ms linear;
@@ -34,7 +34,7 @@ a:hover {
 }
 
 .animation-element.slide-right {
-  opacity: 0.0;
+  opacity: 0;
   -moz-transition: all 500ms linear;
   -webkit-transition: all 500ms linear;
   -o-transition: all 500ms linear;

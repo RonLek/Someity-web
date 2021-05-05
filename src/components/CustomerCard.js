@@ -1,5 +1,5 @@
-import React from 'react';
-import Card from './Card';
+import React from "react";
+import Card from "./Card";
 
 const CustomerCard = ({ customer }) => (
   <Card className="mb-8">

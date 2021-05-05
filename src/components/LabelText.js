@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-const LabelText = ({ children, className = '' }) => (
+const LabelText = ({ children, className = "" }) => (
   <p className={`uppercase tracking-wider ${className}`}>{children}</p>
 );
 
