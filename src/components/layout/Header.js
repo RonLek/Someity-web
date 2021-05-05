@@ -9,7 +9,7 @@ const Header = () => (
       <div className="flex items-center text-2xl">
         <div className="w-10 mr-1 flex">
           <StaticImage
-            src="../../images/someity-logo.png"
+            src="../../images/icon.png"
             alt="Someity"
             className="w-8"
           />
