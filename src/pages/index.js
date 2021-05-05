@@ -9,23 +9,25 @@ import StatsBox from '../components/StatsBox';
 import customerData from '../data/customer-data';
 import HeroImage from '../svg/HeroImage';
 import SvgCharts from '../svg/SvgCharts';
+import {SiGooglechrome, SiBrave} from 'react-icons/si'
 
 const Index = () => (
   <Layout>
     <section className="pt-20 md:pt-40">
       <div className="container mx-auto px-8 lg:flex">
         <div className="text-center lg:text-left lg:w-1/2">
-          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-none">
-            Main title of your landing page
+          <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-none">
+            Your all in one accessibility and productivity tool.
           </h1>
-          <p className="text-xl lg:text-2xl mt-6 font-light">
-            Free landing page template to promote your business startup and generate leads for the
-            offered services
+          <p className="text-lg lg:text-2lg mt-6 font-light">
+            Start taking control of how webpages display in your browser and more!
           </p>
-          <p className="mt-8 md:mt-12">
-            <Button size="lg">Get Started</Button>
+          <p className="mt-6 md:mt-10">
+            <Button size="default">Download now</Button>
           </p>
-          <p className="mt-4 text-gray-600">Sed fermentum felis ut cursu</p>
+          <div className="mt-4 ml-2 text-gray-600 flex flex-row items-center">
+          Available on: <SiGooglechrome className="mx-4 "/> <SiBrave/>
+          </div>
         </div>
         <div className="lg:w-1/2">
           <HeroImage />
