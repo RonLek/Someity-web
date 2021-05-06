@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { SiGooglechrome, SiBrave } from "react-icons/si";
+import { StaticImage } from "gatsby-plugin-image";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import CustomerCard from "../components/CustomerCard";
@@ -75,7 +76,7 @@ const Index = () => {
       <section className="pt-20 md:pt-40">
         <div className="container mx-auto px-8 lg:flex">
           <div className="text-center lg:text-left lg:w-1/2">
-            <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-none">
+            <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-none title">
               Your all in one accessibility and productivity tool.
             </h1>
             <p className="text-lg lg:text-2lg mt-6 font-light">
@@ -161,81 +162,103 @@ const Index = () => {
           </div>
         }
       />
-      <section id="features" className="py-20 lg:pb-40 lg:pt-48">
+      <section id="features" className="py-10 lg:pb-40 lg:pt-15">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl lg:text-5xl font-semibold">Main Features</h2>
+          <h2 className="text-3xl lg:text-5xl font-medium">Actions</h2>
           <div className="flex flex-col sm:flex-row sm:-mx-3 mt-12">
-            <div className="flex-1 px-3">
+            <div className="flex-1 px-1">
               <Card className="mb-8">
-                <p className="font-semibold text-xl">Service One</p>
-                <p className="mt-4">
-                  An enim nullam tempor gravida donec enim ipsum blandit porta
-                  justo integer odio velna vitae auctor integer.
+                <StaticImage className="-z-1" src="../images/globe.png" />
+                <h4 className="text-xl mt-5">Say "Open Wikipedia"</h4>
+                <p className="mt-4 text-gray-500">
+                  Go to websites by just naming them.
                 </p>
               </Card>
             </div>
-            <div className="flex-1 px-3">
+            <div className="flex-1 px-1">
               <Card className="mb-8">
-                <p className="font-semibold text-xl">Service Two</p>
-                <p className="mt-4">
-                  An enim nullam tempor gravida donec enim ipsum blandit porta
-                  justo integer odio velna vitae auctor integer.
+                <StaticImage className="-z-1" src="../images/youtube.png" />
+                <h4 className="text-xl mt-5">Say "Play Starboy"</h4>
+                <p className="mt-4 text-gray-500">
+                  Just name your YouTube videos.
                 </p>
               </Card>
             </div>
-            <div className="flex-1 px-3">
+            <div className="flex-1 px-1">
               <Card className="mb-8">
-                <p className="font-semibold text-xl">Service Three</p>
-                <p className="mt-4">
-                  An enim nullam tempor gravida donec enim ipsum blandit porta
-                  justo integer odio velna vitae auctor integer.
+                <StaticImage className="-z-1" src="../images/translate.png" />
+                <h4 className="text-xl mt-5">Say "Translate Bonjour"</h4>
+                <p className="mt-4 text-gray-500">
+                  Translate from any language to English by just speaking.
+                </p>
+              </Card>
+            </div>
+            <div className="flex-1 px-1">
+              <Card className="mb-8">
+                <StaticImage className="-z-1" src="../images/google-maps.png" />
+                <h4 className="text-lg mt-5">
+                  Say "Direction Mumbai to Delhi"
+                </h4>
+                <p className="mt-4 text-gray-500">
+                  Go places by just naming your source and destinations.
                 </p>
               </Card>
             </div>
           </div>
         </div>
       </section>
-      <section id="stats" className="py-20 lg:pt-32">
-        <div className="container mx-auto text-center">
-          <LabelText className="text-gray-600">
-            Our customers get results
-          </LabelText>
-          <div className="flex flex-col sm:flex-row mt-8 lg:px-24">
-            <div className="w-full sm:w-1/3">
-              <StatsBox primaryText="+100%" secondaryText="Stats Information" />
-            </div>
-            <div className="w-full sm:w-1/3">
-              <StatsBox primaryText="+100%" secondaryText="Stats Information" />
-            </div>
-            <div className="w-full sm:w-1/3">
-              <StatsBox primaryText="+100%" secondaryText="Stats Information" />
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="testimonials" className="py-20 lg:py-40">
-        <div className="container mx-auto">
-          <LabelText className="mb-8 text-gray-600 text-center">
-            What customers are saying
-          </LabelText>
-          <div className="flex flex-col md:flex-row md:-mx-3">
-            {customerData.map((customer) => (
-              <div key={customer.customerName} className="flex-1 px-3">
-                <CustomerCard customer={customer} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="container mx-auto my-20 py-24 bg-gray-200 rounded-lg text-center">
-        <h3 className="text-5xl font-semibold">Ready to grow your business?</h3>
-        <p className="mt-8 text-xl font-light">
-          Quis lectus nulla at volutpat diam ut. Enim lobortis scelerisque
-          fermentum dui faucibus in.
-        </p>
+      <section className="my-10 text-center">
+        <StaticImage
+          src="../images/icon.png"
+          alt="Someity"
+          className="w-100 -z-1"
+        />
+        <p className="mt-8 text-3xl font-medium">Get Started</p>
         <p className="mt-8">
-          <Button size="xl">Get Started Now</Button>
+          <Button size="lg">Download Someity Today</Button>
         </p>
+      </section>
+
+      <section className="mt-20 py-20 text-center">
+        <p className="my-8 text-3xl font-medium">Watch the Video</p>
+        <div className="flex justify-center">
+          <iframe
+            width="900"
+            height="500"
+            className="rounded-md shadow-xl"
+            allowFullScreen
+            src="https://www.youtube.com/embed/B8UydVf37yY"
+            title="Someity - Making the Web Accessible for All"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen="allowFullScreen"
+          />
+        </div>
+      </section>
+
+      <section className="py-20 px-20 text-center">
+        <p className="my-8 text-3xl font-medium">Why Someity?</p>
+        <div>
+          <p className="text-xl my-10">
+            More than 70% websites on the Internet have been classified as
+            in-accessible. This is inimical to people with disabilities and
+            restricts involving them within the Internet Community. We were
+            determined to change this. We built Someity which can make all
+            websites on the Internet accessible to individuals with
+            accessibility challenges and also serve as a productivity tool
+            without having website makers change a single line of source code.
+          </p>
+          <p className="text-xl">
+            We named our extension Someity after the Tokyo 2020 Paralympic
+            Mascot. It means "Someiyoshino" — a popular type of cherry blossom —
+            and the phrase <strong>"so mighty"</strong>. Someity can show
+            enormous mental and physical strength, representing Paralympic
+            athletes who overcome obstacles and redefine the boundaries of
+            possibility. The logo of Someity is the{" "}
+            <a href="https://en.wikipedia.org/wiki/Akita_(dog)">Akita</a> dog
+            one of the most powerful and independent Japanese dog breeds.
+          </p>
+        </div>
       </section>
     </Layout>
   );

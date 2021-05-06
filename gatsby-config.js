@@ -42,7 +42,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "Someity",
+        name: "Making the web Accessible for All | Someity",
         short_name: "Someity",
         start_url: "/",
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
