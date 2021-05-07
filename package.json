@@ -23,7 +23,8 @@
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "react-icons": "^4.2.0"
+    "react-icons": "^4.2.0",
+    "sharp": "^0.28.1"
   },
   "devDependencies": {
     "eslint": "^7.25.0",

@@ -90,6 +90,7 @@ const Index = (props) => {
                 height={15}
                 className="-z-1 mr-3"
                 src="../images/trophy.png"
+                alt="Winner at Hack-ccessible"
               />{" "}
               <span className="text-gray-700">
                 Winner at Hack-ccessible Hackathon
@@ -205,7 +206,7 @@ const Index = (props) => {
           <div className="flex flex-col sm:flex-row sm:-mx-3 mt-12">
             <div className="flex-1 px-1">
               <Card className="mb-8">
-                <StaticImage className="-z-1" src="../images/globe.png" />
+                <StaticImage alt="Open Websites" className="-z-1" src="../images/globe.png" />
                 <h4 className="text-xl mt-5">Say "Open Wikipedia"</h4>
                 <p className="mt-4 text-gray-500">
                   Go to websites by just naming them.
@@ -214,7 +215,7 @@ const Index = (props) => {
             </div>
             <div className="flex-1 px-1">
               <Card className="mb-8">
-                <StaticImage className="-z-1" src="../images/youtube.png" />
+                <StaticImage alt="Play YouTube videos" className="-z-1" src="../images/youtube.png" />
                 <h4 className="text-xl mt-5">Say "Play Starboy"</h4>
                 <p className="mt-4 text-gray-500">
                   Just name your YouTube videos.
@@ -223,7 +224,7 @@ const Index = (props) => {
             </div>
             <div className="flex-1 px-1">
               <Card className="mb-8">
-                <StaticImage className="-z-1" src="../images/translate.png" />
+                <StaticImage alt="Translate from any language" className="-z-1" src="../images/translate.png" />
                 <h4 className="text-xl mt-5">Say "Translate Bonjour"</h4>
                 <p className="mt-4 text-gray-500">
                   Translate from any language to English by just speaking.
@@ -232,7 +233,7 @@ const Index = (props) => {
             </div>
             <div className="flex-1 px-1">
               <Card className="mb-8">
-                <StaticImage className="-z-1" src="../images/google-maps.png" />
+                <StaticImage alt="Get Directions" className="-z-1" src="../images/google-maps.png" />
                 <h4 className="text-lg mt-5">
                   Say "Direction Mumbai to Delhi"
                 </h4>

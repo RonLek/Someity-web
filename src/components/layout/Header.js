@@ -11,6 +11,7 @@ const Header = (props) => {
         <div className="flex items-center text-2xl">
           <div className="w-10 mr-1 flex">
             <StaticImage
+              alt="Someity"
               src="../../images/icon.png"
               alt="Someity"
               className="w-8"
@@ -23,10 +24,20 @@ const Header = (props) => {
             Fork on GitHub
           </AnchorLink>
           <Link
-            to={props.props? (props.props.path === "/demo/" ? "/" : "/demo"):"/"}
+            to={
+              props.props
+                ? props.props.path === "/demo/"
+                  ? "/"
+                  : "/demo"
+                : "/"
+            }
             className="px-4"
           >
-            {props.props? (props.props.path === "/demo/" ? "Home" : "Demo Page"):"Home"}
+            {props.props
+              ? props.props.path === "/demo/"
+                ? "Home"
+                : "Demo Page"
+              : "Home"}
           </Link>
           <Button className="text-sm ml-3">Download</Button>
         </div>
