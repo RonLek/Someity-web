@@ -29,7 +29,7 @@ function useOnScreen(ref) {
   return isIntersecting;
 }
 
-const Index = () => {
+const Index = (props) => {
   const refl1 = useRef();
   const refr1 = useRef();
   const refl2 = useRef();
@@ -72,7 +72,7 @@ const Index = () => {
   }
 
   return (
-    <Layout>
+    <Layout props={props}>
       <section className="pt-20 md:pt-40">
         <div className="container mx-auto px-8 lg:flex">
           <div className="text-center lg:text-left lg:w-1/2">
@@ -83,6 +83,20 @@ const Index = () => {
               Start taking control of how webpages display in your browser and
               more!
             </p>
+            <div
+              style={{ borderLeft: "3px solid #a0a5b0" }}
+              className="mt-6 p-2 items-center flex items-center"
+            >
+              <StaticImage
+                width={15}
+                height={15}
+                className="-z-1 mr-3"
+                src="../images/trophy.png"
+              />{" "}
+              <span className="text-gray-700">
+                Winner at Hack-ccessible Hackathon
+              </span>
+            </div>
             <p className="mt-6 md:mt-10">
               <Button size="default">Download now</Button>
             </p>
