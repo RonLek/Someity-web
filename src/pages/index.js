@@ -3,14 +3,12 @@ import { SiGooglechrome, SiBrave } from "react-icons/si";
 import { StaticImage } from "gatsby-plugin-image";
 import Button from "../components/Button";
 import Card from "../components/Card";
-import CustomerCard from "../components/CustomerCard";
-import LabelText from "../components/LabelText";
 import Layout from "../components/layout/Layout";
 import SplitSection from "../components/SplitSection";
-import StatsBox from "../components/StatsBox";
-import customerData from "../data/customer-data";
-import HeroImage from "../svg/HeroImage";
-import SvgCharts from "../svg/SvgCharts";
+import introWalkThrough from "../images/intro-walkthrough.gif";
+import focusMode from "../images/focus-mode.gif";
+import magnifier from "../images/magnifier.gif";
+import colorBlindness from "../images/color-blindness.gif";
 
 function useOnScreen(ref) {
   const [isIntersecting, setIntersecting] = useState(false);
@@ -55,11 +53,11 @@ const Index = (props) => {
 
   if (isVisiblel2) {
     refl2.current.className =
-      "lg:pr-32 xl:pr-48 animation-element slide-left in-view";
+      "lg:pl-32 xl:pl-48 animation-element slide-right in-view";
   }
 
   if (isVisibler2) {
-    refr2.current.className = "animation-element slide-right in-view";
+    refr2.current.className = "animation-element slide-left in-view";
   }
 
   if (isVisiblel3) {
@@ -73,7 +71,7 @@ const Index = (props) => {
 
   return (
     <Layout props={props}>
-      <section className="pt-20 md:pt-40">
+      <section className="pt-20 mb-20 md:pt-40">
         <div className="container mx-auto px-8 lg:flex">
           <div className="text-center lg:text-left lg:w-1/2">
             <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-none title">
@@ -106,8 +104,15 @@ const Index = (props) => {
               <SiBrave title="Brave Browser" />
             </div>
           </div>
-          <div className="lg:w-1/2">
-            <HeroImage />
+          <div className="flex p-5 lg:w-1/2">
+            <img
+              className="-z-1"
+              style={{
+                boxShadow: "-13px 10px 20px 0px rgb(0 0 0 / 8%)",
+                borderRadius: "10px",
+              }}
+              src={introWalkThrough}
+            />
           </div>
         </div>
       </section>
@@ -118,18 +123,23 @@ const Index = (props) => {
             ref={refl1}
             className="lg:pr-32 xl:pr-48 animation-element slide-left"
           >
-            <h3 className="text-3xl font-semibold leading-tight">
-              Market Analysis
-            </h3>
+            <h3 className="text-3xl font-semibold leading-tight">Focus Mode</h3>
             <p className="mt-8 text-xl font-light leading-relaxed">
-              Our team of enthusiastic marketers will analyse and evaluate how
-              your company stacks against the closest competitors
+              Suffering from cognitive impairments, short attention span or just
+              want to stay focussed? Focus Mode is just for you!
             </p>
           </div>
         }
         secondarySlot={
           <div className="animation-element slide-right" ref={refr1}>
-            <SvgCharts />{" "}
+            <img
+              className="-z-1"
+              style={{
+                boxShadow: "-13px 10px 20px 0px rgb(0 0 0 / 8%)",
+                borderRadius: "10px",
+              }}
+              src={focusMode}
+            />
           </div>
         }
       />
@@ -141,17 +151,24 @@ const Index = (props) => {
             className="lg:pl-32 xl:pl-48 animation-element slide-right"
           >
             <h3 className="text-3xl font-semibold leading-tight">
-              Design And Plan Your Business Growth Steps
+              Image Magnifier
             </h3>
             <p className="mt-8 text-xl font-light leading-relaxed">
-              Once the market analysis process is completed our staff will
-              search for opportunities that are in reach
+              Image too small to be clearly visible? Don't strain your eyes!
+              Magnify the smallest of images with just a hover.
             </p>
           </div>
         }
         secondarySlot={
           <div className="animation-element slide-left" ref={refr2}>
-            <SvgCharts />{" "}
+            <img
+              className="-z-1"
+              style={{
+                boxShadow: "-13px 10px 20px 0px rgb(0 0 0 / 8%)",
+                borderRadius: "10px",
+              }}
+              src={magnifier}
+            />
           </div>
         }
       />
@@ -162,17 +179,23 @@ const Index = (props) => {
             className="lg:pr-32 xl:pr-48 animation-element slide-left"
           >
             <h3 className="text-3xl font-semibold leading-tight">
-              Search For Performance Optimization
+              Color Blindness Support
             </h3>
             <p className="mt-8 text-xl font-light leading-relaxed">
-              With all the information in place you will be presented with an
-              action plan that your company needs to follow
+              Have red-green, blue-yellow or total color blindness and wish if
+              only texts and link were better visible? We got you covered!
             </p>
           </div>
         }
         secondarySlot={
           <div className="animation-element slide-right" ref={refr3}>
-            <SvgCharts />{" "}
+            <img
+              style={{
+                boxShadow: "-13px 10px 20px 0px rgb(0 0 0 / 8%)",
+                borderRadius: "10px",
+              }}
+              src={colorBlindness}
+            />
           </div>
         }
       />

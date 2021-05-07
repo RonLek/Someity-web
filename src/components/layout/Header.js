@@ -23,10 +23,10 @@ const Header = (props) => {
             Fork on GitHub
           </AnchorLink>
           <Link
-            to={props.props.path === "/demo/" ? "/" : "/demo"}
+            to={props.props? (props.props.path === "/demo/" ? "/" : "/demo"):"/"}
             className="px-4"
           >
-            {props.props.path === "/demo/" ? "Home" : "Demo Page"}
+            {props.props? (props.props.path === "/demo/" ? "Home" : "Demo Page"):"Home"}
           </Link>
           <Button className="text-sm ml-3">Download</Button>
         </div>
