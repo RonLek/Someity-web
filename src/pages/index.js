@@ -60,7 +60,6 @@ function PageWrapper(props) {
 
 const Index = (props) => {
   const { openSnackbar, closeSnackbar } = props;
-  console.log("Props = ", props);
 
   const refl1 = useRef();
   const refr1 = useRef();
@@ -315,7 +314,7 @@ const Index = (props) => {
             height="500"
             className="rounded-md shadow-xl"
             allowFullScreen
-            src="https://www.youtube.com/embed/B8UydVf37yY"
+            src="https://www.youtube.com/embed/sIABhzXg6_A"
             title="Someity - Making the Web Accessible for All"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
