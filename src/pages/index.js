@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { SiGooglechrome, SiBrave } from "react-icons/si";
 import { StaticImage } from "gatsby-plugin-image";
+import { FormiumForm, defaultComponents } from "@formium/react";
+import { graphql } from "gatsby";
+// import { useSnackbar } from "react-simple-snackbar";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import Layout from "../components/layout/Layout";
@@ -9,6 +12,7 @@ import introWalkThrough from "../images/intro-walkthrough.gif";
 import focusMode from "../images/focus-mode.gif";
 import magnifier from "../images/magnifier.gif";
 import colorBlindness from "../images/color-blindness.gif";
+import formium from "../lib/formium";
 
 function useOnScreen(ref) {
   const [isIntersecting, setIntersecting] = useState(false);
@@ -27,7 +31,37 @@ function useOnScreen(ref) {
   return isIntersecting;
 }
 
-const Index = (props) => {
+function TextInput(props) {
+  return (
+    <input
+      {...props}
+      placeholder="Your Email"
+      style={{ border: "1px solid gray", borderRadius: "15px" }}
+      className="p-3 mr-3"
+    />
+  );
+}
+
+function SubmitButton(props) {
+  return (
+    <Button {...props} size="default">
+      Submit
+    </Button>
+  );
+}
+
+function PageWrapper(props) {
+  return <div {...props} className="flex flex-row justify-center" />;
+}
+
+const Index = ({ data }) => {
+  const [success, setSuccess] = React.useState(false);
+  // const [openSnackbar, closeSnackbar] = useSnackbar();
+
+  console.log("Data = ", data);
+  const props = { path: "/" };
+  console.log("Props = ", props);
+  console.log("Gatby project id= ", process.env.GATSBY_FORMIUM_PROJECTID);
   const refl1 = useRef();
   const refr1 = useRef();
   const refl2 = useRef();
@@ -206,7 +240,11 @@ const Index = (props) => {
           <div className="flex flex-col sm:flex-row sm:-mx-3 mt-12">
             <div className="flex-1 px-1">
               <Card className="mb-8">
-                <StaticImage alt="Open Websites" className="-z-1" src="../images/globe.png" />
+                <StaticImage
+                  alt="Open Websites"
+                  className="-z-1"
+                  src="../images/globe.png"
+                />
                 <h4 className="text-xl mt-5">Say "Open Wikipedia"</h4>
                 <p className="mt-4 text-gray-500">
                   Go to websites by just naming them.
@@ -215,7 +253,11 @@ const Index = (props) => {
             </div>
             <div className="flex-1 px-1">
               <Card className="mb-8">
-                <StaticImage alt="Play YouTube videos" className="-z-1" src="../images/youtube.png" />
+                <StaticImage
+                  alt="Play YouTube videos"
+                  className="-z-1"
+                  src="../images/youtube.png"
+                />
                 <h4 className="text-xl mt-5">Say "Play Starboy"</h4>
                 <p className="mt-4 text-gray-500">
                   Just name your YouTube videos.
@@ -224,7 +266,11 @@ const Index = (props) => {
             </div>
             <div className="flex-1 px-1">
               <Card className="mb-8">
-                <StaticImage alt="Translate from any language" className="-z-1" src="../images/translate.png" />
+                <StaticImage
+                  alt="Translate from any language"
+                  className="-z-1"
+                  src="../images/translate.png"
+                />
                 <h4 className="text-xl mt-5">Say "Translate Bonjour"</h4>
                 <p className="mt-4 text-gray-500">
                   Translate from any language to English by just speaking.
@@ -233,7 +279,11 @@ const Index = (props) => {
             </div>
             <div className="flex-1 px-1">
               <Card className="mb-8">
-                <StaticImage alt="Get Directions" className="-z-1" src="../images/google-maps.png" />
+                <StaticImage
+                  alt="Get Directions"
+                  className="-z-1"
+                  src="../images/google-maps.png"
+                />
                 <h4 className="text-lg mt-5">
                   Say "Direction Mumbai to Delhi"
                 </h4>
@@ -298,8 +348,50 @@ const Index = (props) => {
           </p>
         </div>
       </section>
+      <section className="py-20 px-20 text-center">
+        <p className="my-8 text-3xl font-medium">Receive our Newsletter</p>
+        <p className="mb-20">
+          Be the first to know about the latest updates and announcements to
+          Someity{" "}
+        </p>
+        <FormiumForm
+          data={data.formiumForm}
+          components={{
+            ...defaultComponents,
+            TextInput,
+            SubmitButton,
+            PageWrapper,
+          }}
+          onSubmit={async (values) => {
+            // Send form values to Formium
+            const result = await formium.submitForm(
+              "someity-email-sign-up",
+              values
+            );
+            console.log("Result = ", result);
+            setSuccess(true);
+            alert("Success");
+            // openSnackbar("Success");
+          }}
+        />
+      </section>
     </Layout>
   );
 };
+
+export const query = graphql`
+  {
+    formiumForm(slug: { eq: "someity-email-sign-up" }) {
+      id
+      createAt
+      name
+      projectId
+      schema
+      slug
+      updateAt
+      version
+    }
+  }
+`;
 
 export default Index;
