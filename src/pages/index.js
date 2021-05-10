@@ -3,7 +3,7 @@ import { SiGooglechrome, SiBrave } from "react-icons/si";
 import { StaticImage } from "gatsby-plugin-image";
 import { FormiumForm, defaultComponents } from "@formium/react";
 import { graphql } from "gatsby";
-// import { useSnackbar } from "react-simple-snackbar";
+import { withSnackbar } from "react-simple-snackbar";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import Layout from "../components/layout/Layout";
@@ -44,9 +44,13 @@ function TextInput(props) {
 
 function SubmitButton(props) {
   return (
-    <Button {...props} size="default">
+    <button
+      {...props}
+      type="submit"
+      className="py-3 px-8 bg-primary-darker hover:bg-blue-700 rounded-full text-white "
+    >
       Submit
-    </Button>
+    </button>
   );
 }
 
@@ -54,14 +58,10 @@ function PageWrapper(props) {
   return <div {...props} className="flex flex-row justify-center" />;
 }
 
-const Index = ({ data }) => {
-  const [success, setSuccess] = React.useState(false);
-  // const [openSnackbar, closeSnackbar] = useSnackbar();
-
-  console.log("Data = ", data);
-  const props = { path: "/" };
+const Index = (props) => {
+  const { openSnackbar, closeSnackbar } = props;
   console.log("Props = ", props);
-  console.log("Gatby project id= ", process.env.GATSBY_FORMIUM_PROJECTID);
+
   const refl1 = useRef();
   const refr1 = useRef();
   const refl2 = useRef();
@@ -355,7 +355,7 @@ const Index = ({ data }) => {
           Someity{" "}
         </p>
         <FormiumForm
-          data={data.formiumForm}
+          data={props.data.formiumForm}
           components={{
             ...defaultComponents,
             TextInput,
@@ -368,10 +368,7 @@ const Index = ({ data }) => {
               "someity-email-sign-up",
               values
             );
-            console.log("Result = ", result);
-            setSuccess(true);
-            alert("Success");
-            // openSnackbar("Success");
+            openSnackbar("Submitted! Thanks for signing up. Woof.");
           }}
         />
       </section>
@@ -394,4 +391,23 @@ export const query = graphql`
   }
 `;
 
-export default Index;
+const options = {
+  position: "top-right",
+  style: {
+    backgroundColor: "#4caf50",
+    border: "1px solid #4caf50",
+    color: "white",
+    fontWeight: 500,
+    fontFamily: "Menlo, monospace",
+    fontSize: "0.875rem",
+    boxShadow:
+      "0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12)",
+    borderRadius: "4px",
+  },
+  closeStyle: {
+    color: "white",
+    fontSize: "0.875rem",
+  },
+};
+
+export default withSnackbar(Index, options);

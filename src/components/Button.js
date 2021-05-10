@@ -6,7 +6,7 @@ const sizes = {
   xl: `py-5 px-16 text-lg`,
 };
 
-const Button = ({ children, className = "", size }) => {
+export const Button = ({ children, className = "", size }) => {
   return (
     <button
       type="button"
