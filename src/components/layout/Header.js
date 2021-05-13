@@ -39,7 +39,13 @@ const Header = (props) => {
                 : "Demo Page"
               : "Home"}
           </Link>
-          <Button className="text-sm ml-3">Download</Button>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://chrome.google.com/webstore/detail/someity/jifjdmnjnmpbclnpjlmebkclilekkdho"
+          >
+            <Button className="text-sm ml-3">Download</Button>
+          </a>
         </div>
       </div>
     </header>

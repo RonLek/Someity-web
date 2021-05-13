@@ -58,3 +58,7 @@ a:hover {
 .title {
   color: #333333;
 }
+
+button:focus {
+  outline: none;
+}

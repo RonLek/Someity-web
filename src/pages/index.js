@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import { FormiumForm, defaultComponents } from "@formium/react";
 import { graphql } from "gatsby";
 import { withSnackbar } from "react-simple-snackbar";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import Layout from "../components/layout/Layout";
@@ -130,7 +131,13 @@ const Index = (props) => {
               </span>
             </div>
             <p className="mt-6 md:mt-10">
-              <Button size="default">Download now</Button>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://chrome.google.com/webstore/detail/someity/jifjdmnjnmpbclnpjlmebkclilekkdho"
+              >
+                <Button size="default">Download now</Button>
+              </a>
             </p>
             <div className="mt-4 ml-2 text-gray-600 flex flex-row items-center">
               Available on:{" "}
@@ -302,7 +309,13 @@ const Index = (props) => {
         />
         <p className="mt-8 text-3xl font-medium">Get Started</p>
         <p className="mt-8">
-          <Button size="lg">Download Someity Today</Button>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://chrome.google.com/webstore/detail/someity/jifjdmnjnmpbclnpjlmebkclilekkdho"
+          >
+            <Button size="lg">Download Someity Today</Button>
+          </a>
         </p>
       </section>
 
