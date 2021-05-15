@@ -4,15 +4,14 @@ import { StaticImage } from "gatsby-plugin-image";
 import { FormiumForm, defaultComponents } from "@formium/react";
 import { graphql } from "gatsby";
 import { withSnackbar } from "react-simple-snackbar";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import Layout from "../components/layout/Layout";
 import SplitSection from "../components/SplitSection";
-import introWalkThrough from "../images/intro-walkthrough.gif";
-import focusMode from "../images/focus-mode.gif";
-import magnifier from "../images/magnifier.gif";
-import colorBlindness from "../images/color-blindness.gif";
+import introWalkThrough from "../images/intro-walkthrough.mp4";
+import focusMode from "../images/focus-mode.mp4";
+import magnifier from "../images/magnifier.mp4";
+import colorBlindness from "../images/color-blindness.mp4";
 import formium from "../lib/formium";
 
 function useOnScreen(ref) {
@@ -142,6 +141,7 @@ const Index = (props) => {
                 className="ml-5 flex items-center"
                 href="https://www.producthunt.com/posts/someity?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-someity"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <img
                   src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=295632&theme=light"
@@ -155,15 +155,19 @@ const Index = (props) => {
               <SiBrave title="Brave Browser" />
             </div>
           </div>
-          <div className="flex p-5 lg:w-1/2">
-            <img
-              className="-z-1"
+          <div className="flex lg:w-1/2">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
               style={{
                 boxShadow: "-13px 10px 20px 0px rgb(0 0 0 / 8%)",
                 borderRadius: "10px",
               }}
-              src={introWalkThrough}
-            />
+            >
+              <source src={introWalkThrough} type="video/mp4" />
+            </video>
           </div>
         </div>
       </section>
@@ -183,14 +187,18 @@ const Index = (props) => {
         }
         secondarySlot={
           <div className="animation-element slide-right" ref={refr1}>
-            <img
-              className="-z-1"
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
               style={{
                 boxShadow: "-13px 10px 20px 0px rgb(0 0 0 / 8%)",
                 borderRadius: "10px",
               }}
-              src={focusMode}
-            />
+            >
+              <source src={focusMode} type="video/mp4" />
+            </video>
           </div>
         }
       />
@@ -212,14 +220,18 @@ const Index = (props) => {
         }
         secondarySlot={
           <div className="animation-element slide-left" ref={refr2}>
-            <img
-              className="-z-1"
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
               style={{
                 boxShadow: "-13px 10px 20px 0px rgb(0 0 0 / 8%)",
                 borderRadius: "10px",
               }}
-              src={magnifier}
-            />
+            >
+              <source src={magnifier} type="video/mp4" />
+            </video>
           </div>
         }
       />
@@ -240,13 +252,18 @@ const Index = (props) => {
         }
         secondarySlot={
           <div className="animation-element slide-right" ref={refr3}>
-            <img
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
               style={{
                 boxShadow: "-13px 10px 20px 0px rgb(0 0 0 / 8%)",
                 borderRadius: "10px",
               }}
-              src={colorBlindness}
-            />
+            >
+              <source src={colorBlindness} type="video/mp4" />
+            </video>
           </div>
         }
       />
@@ -386,10 +403,7 @@ const Index = (props) => {
           }}
           onSubmit={async (values) => {
             // Send form values to Formium
-            const result = await formium.submitForm(
-              "someity-email-sign-up",
-              values
-            );
+            await formium.submitForm("someity-email-sign-up", values);
             openSnackbar("Submitted! Thanks for signing up. Woof.");
           }}
         />

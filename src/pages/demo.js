@@ -3,7 +3,6 @@ import Layout from "../components/layout/Layout";
 
 import akitaImage from "../images/Akita.jpg";
 import americanAkita from "../images/American-akita.jpg";
-import americanAkita9yo from "../images/American-akita-9yo.jpg";
 
 const NotFound = (props) => (
   <Layout props={props}>
