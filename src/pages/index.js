@@ -130,7 +130,7 @@ const Index = (props) => {
                 Winner at Hack-ccessible Hackathon
               </span>
             </div>
-            <p className="mt-6 md:mt-10">
+            <div className="mt-6 md:mt-10 flex">
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -138,7 +138,17 @@ const Index = (props) => {
               >
                 <Button size="default">Download now</Button>
               </a>
-            </p>
+              <a
+                className="ml-5 flex items-center"
+                href="https://www.producthunt.com/posts/someity?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-someity"
+                target="_blank"
+              >
+                <img
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=295632&theme=light"
+                  alt="Someity - Making the web accessible for all | Product Hunt"
+                />
+              </a>
+            </div>
             <div className="mt-4 ml-2 text-gray-600 flex flex-row items-center">
               Available on:{" "}
               <SiGooglechrome className="mx-4 " title="Google Chrome" />{" "}
