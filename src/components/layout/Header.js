@@ -25,18 +25,14 @@ const Header = (props) => {
           </AnchorLink>
           <Link
             to={
-              props.props
-                ? props.props.path === "/demo/"
-                  ? "/"
-                  : "/demo"
-                : "/"
+              props.props ? (props.props.path === "/" ? "/feedback" : "/") : "/"
             }
             className="px-4"
           >
             {props.props
-              ? props.props.path === "/demo/"
-                ? "Home"
-                : "Demo Page"
+              ? props.props.path === "/"
+                ? "Feedback"
+                : "Home"
               : "Home"}
           </Link>
           <a
